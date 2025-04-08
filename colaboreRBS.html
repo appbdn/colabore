@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyperlink para copiar conteúdo</title>
+</head>
+<body>
+    <p id="textoParaCopiar">Este é o conteúdo que será copiado para a área de transferência.</p>
+    <a href="#" onclick="copiarTexto()">Clique aqui para copiar o texto</a>
+
+    <script>
+        function copiarTexto() {
+            const texto = document.getElementById("textoParaCopiar").textContent;
+            navigator.clipboard.writeText(texto).then(() => {
+                alert("Texto copiado para a área de transferência!");
+            }).catch(err => {
+                console.error("Erro ao copiar o texto:", err);
+                alert("Falha ao copiar o texto. Tente novamente.");
+            });
+        }
+    </script>
+</body>
+</html>
